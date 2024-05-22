@@ -4,7 +4,7 @@ global:
   spec:
     project: default
     destination:
-      server: htpps://kubernetes.default.svc
+      server: https://kubernetes.default.svc
       namespace: default
     source:
     repoURL: 'https://github.com/francisco1code/argocd-app-of-app'

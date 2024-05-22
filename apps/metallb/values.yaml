@@ -1,0 +1,4 @@
+metallb:
+  promethues:
+    serviceMonitor:
+      enable: false

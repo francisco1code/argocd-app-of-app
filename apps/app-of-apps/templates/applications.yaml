@@ -1,0 +1,32 @@
+{{ if not .disable }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-of-apps
+  namespace: argocd
+spec:
+  project: {{ $.Values.global.spec.project }}
+  source:
+    repoURL: {{ $.Values.global.spec.repoURL}}
+    targetRevision: HEAD
+    path: apps/app-of-apps
+    helm:
+      valuesFiles:
+      - {{ $.Values.global.valuesFiles}}
+
+
+  destination:
+    namespace: apps
+    server: {{ $.Values.global.spec.destination.server }}
+  
+  syncPolicy:
+    {{- if not .disableAutomated }}
+    automated:
+      prune: false
+      selfHeal: true
+    {{- end}}
+    syncOptions:
+      - CreateNamespace=true
+      - ApllyOutOfSyncOnly=true
+---
+{{- end}}

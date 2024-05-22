@@ -1,0 +1,19 @@
+global:
+  helmDefault: false
+  valuesFile: values.yaml
+  spec:
+    project: default
+    destination:
+      server: htpps://kubernetes.default.svc
+      namespace: default
+    source:
+    repoURL: 'https://github.com/francisco1code/argocd-app-of-app'
+    targetRevision: HEAD
+
+argocdApplications:
+  metallb:
+    name: metallb
+    path: apps/metallb
+    namespace: metallb-system
+    targetRevision: HEAD
+    helm: true

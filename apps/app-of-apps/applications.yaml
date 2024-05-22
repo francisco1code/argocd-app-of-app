@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-of-apps
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: 'https://github.com/francisco1code/argocd-app-of-app'
+    targetRevision: HEAD
+    path: apps/app-of-apps
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  sources:
+    - repoURL: 'https://github.com/francisco1code/argocd-app-of-app'
+      targetRevision: HEAD
+      path: apps/app1
+    - repoURL: 'https://github.com/francisco1code/argocd-app-of-app'
+      targetRevision: HEAD
+      path: apps/app2

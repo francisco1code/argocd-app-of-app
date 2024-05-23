@@ -26,6 +26,6 @@ spec:
     {{- end}}
     syncOptions:
       - CreateNamespace=true
-      - ApllyOutOfSyncOnly=true
+
 ---
 {{- end}}

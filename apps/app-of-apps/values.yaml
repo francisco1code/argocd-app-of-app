@@ -17,3 +17,9 @@ argocdApplications:
     namespace: metallb-system
     targetRevision: HEAD
     helm: true
+  nginx:
+    name: nginx
+    path: apps/nginx
+    namespace: nginx
+    targetRevision: HEAD
+    helm: true

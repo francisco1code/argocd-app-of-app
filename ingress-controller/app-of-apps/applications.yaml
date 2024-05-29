@@ -5,13 +5,13 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: default
+    namespace: ingress-controller
     server: 'https://kubernetes.default.svc'
   project: default
   source:
     repoURL: 'https://github.com/francisco1code/argocd-app-of-app'
     targetRevision: HEAD
-    path: apps/app-of-apps
+    path: ingress-controller/app-of-apps
   syncPolicy:
     automated:
       prune: true
@@ -19,13 +19,18 @@ spec:
   sources:
     - repoURL: 'https://github.com/francisco1code/argocd-app-of-app'
       targetRevision: HEAD
-      path: apps/nginx-1
+      path: ingress-controller/namespaces
+      directory:
+        recurse: true
+    - repoURL: 'https://github.com/francisco1code/argocd-app-of-app'
+      targetRevision: HEAD
+      path: ingress-controller/nginx-1
       helm:
         valueFiles:
           - values.yaml
     - repoURL: 'https://github.com/francisco1code/argocd-app-of-app'
       targetRevision: HEAD
-      path: apps/nginx-2
+      path: ingress-controller/nginx-2
       helm:
         valueFiles:
           - values.yaml

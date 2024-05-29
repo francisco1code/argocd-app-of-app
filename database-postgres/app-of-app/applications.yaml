@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: default
+    namespace: ingress-controller
     server: 'https://kubernetes.default.svc'
   project: default
   source:
@@ -19,13 +19,7 @@ spec:
   sources:
     - repoURL: 'https://github.com/francisco1code/argocd-app-of-app'
       targetRevision: HEAD
-      path: ingress-controller/nginx-1
-      helm:
-        valueFiles:
-          - values.yaml
-    - repoURL: 'https://github.com/francisco1code/argocd-app-of-app'
-      targetRevision: HEAD
-      path: ingress-controller/nginx-2
+      path: database-postgres/postgres-ha
       helm:
         valueFiles:
           - values.yaml

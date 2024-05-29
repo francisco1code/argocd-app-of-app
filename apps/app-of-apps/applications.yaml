@@ -9,7 +9,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: default
   source:
-    repoURL: 'https://github.com/seu-usuario/francisco1code'
+    repoURL: 'https://github.com/francisco1code/argocd-app-of-app'
     targetRevision: HEAD
     path: app-of-apps
   syncPolicy:
@@ -17,7 +17,7 @@ spec:
       prune: true
       selfHeal: true
   sources:
-    - repoURL: 'https://github.com/seu-usuario/francisco1code'
+    - repoURL: 'https://github.com/francisco1code/argocd-app-of-app'
       targetRevision: HEAD
       path: nginx1
       helm:

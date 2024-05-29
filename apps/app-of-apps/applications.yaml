@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: 'https://github.com/francisco1code/argocd-app-of-app'
     targetRevision: HEAD
-    path: app-of-apps
+    path: apps/app-of-apps
   syncPolicy:
     automated:
       prune: true
@@ -19,7 +19,7 @@ spec:
   sources:
     - repoURL: 'https://github.com/francisco1code/argocd-app-of-app'
       targetRevision: HEAD
-      path: nginx-1
+      path: apps/nginx-1
       helm:
         valueFiles:
           - values.yaml

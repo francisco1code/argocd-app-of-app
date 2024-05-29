@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-of-apps
+  name: ingress-controller
   namespace: argocd
 spec:
   destination:
@@ -29,4 +29,3 @@ spec:
       helm:
         valueFiles:
           - values.yaml
-

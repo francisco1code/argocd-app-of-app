@@ -23,3 +23,10 @@ spec:
       helm:
         valueFiles:
           - values.yaml
+    - repoURL: 'https://github.com/francisco1code/argocd-app-of-app'
+      targetRevision: HEAD
+      path: apps/nginx-2
+      helm:
+        valueFiles:
+          - values.yaml
+

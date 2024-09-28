@@ -1,0 +1,23 @@
+global:
+  helmDefault: false
+  valuesFile: values.yaml
+  spec:
+    project: default
+    destination:
+      server: https://kubernetes.default.svc
+      name: default
+    source:
+      repoURL: https://github.com/francisco1code/argocd-app-of-app
+      targetRevision: HEAD
+
+argocdApplications:
+  cert-manager:
+    name: cert-manager
+    namespace: cert-manager
+    disableAutomated: false
+    disable: false
+    path: cert-manager
+    targetRevision: HEAD
+    helm: true
+
+

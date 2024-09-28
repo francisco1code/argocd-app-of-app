@@ -19,5 +19,11 @@ argocdApplications:
     path: cert-manager
     targetRevision: HEAD
     helm: true
-
-
+  harbor:
+    name: harbor
+    namespace: harbor
+    disableAutomated: false
+    disable: false
+    path: harbor
+    targetRevision: HEAD
+    helm: true
